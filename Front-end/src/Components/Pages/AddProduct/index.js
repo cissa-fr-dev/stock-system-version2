@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import { useHistory } from "react-router-dom";
-import { Form, Formik } from 'formik';
+import { Field, Formik } from 'formik';
 
 import AddButton from '../../Common/Buttons/AddButton';
-import TrashButton from '../../Common/Buttons/TrashButton';
-import EditButton from '../../Common/Buttons/EditButton';
+import BackButton from '../../Common/Buttons/BackButton';
 import Header from '../../Common/Header';
 import Modal from '../../Common/Modal';
 import {
@@ -19,17 +18,7 @@ import {
 import {
     Content,
     Hr,
-    Table,
-    TableContent,
-    TableItems,
-    TableHead,
-    TrTitle,
-    TrItems,
-    Th,
-    Td,
-    Actions,
-    TableBody,
-    Message,
+    Form,
 } from './styles';
 
 import './style.css';
@@ -120,10 +109,9 @@ export default function AddProduct() {
                     />
                 }
 
-
-                {/* <BackButton/>
-                    <Breadcrumb/> */}
-
+                <BackButton
+                    onClick={() => handleBackToProductsPage()}
+                />
 
                 <Formik
                     initialValues={product}
@@ -154,20 +142,19 @@ export default function AddProduct() {
                         isSubmitting,
                     }) => (
                         <>
-                            {/* <Content>
-                        
-                        </Content>                       */}
-                            <form className="form-content" onSubmit={handleSubmit}>
-                                <button
-                                    className="back-to-products"
+                            <Form onSubmit={handleSubmit}>
+                                <Field
+                                    name="category"
+                                    as="select"
+                                    onChange={handleChange}
+                                    onBlur={handleBlur}
+                                    //component={SelectField}
+                                    placeholder="Escolha a categoria"
                                 >
-                                    <FontAwesomeIcon
-                                        style={{ width: "1rem", height: "2rem" }}
-                                        className="arrow"
-                                        icon={faChevronLeft}
-                                        onClick={handleBackToProductsPage}
-                                    />
-                                </button>
+                                    <option hidden>Escolha</option>
+                                    <option value="green">Green</option>
+                                    <option value="blue">Blue</option>
+                                </Field>
                                 <div>
                                     <div className="row">
                                         <div className="col">
@@ -227,7 +214,7 @@ export default function AddProduct() {
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            </Form>
 
                             <div className="save-content">
                                 <button
@@ -246,3 +233,63 @@ export default function AddProduct() {
         </>
     )
 }
+
+{/* <div>
+<div className="row">
+    <div className="col">
+        <span>Categoria</span>
+        <select
+            type="category_id"
+            name="category_id"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder="Escolha a categoria"
+        >
+            <option value="" selected disabled hidden>Escolha uma categoria</option>
+            {categories && categories.map(item => (
+                <option
+                    key={item.id}
+                    value={item.id}
+                >
+                    {item.name}
+                </option>
+            ))}
+        </select>
+    </div>
+    <div className="col">
+        <span>Nome</span>
+        <input
+            type="name"
+            name="name"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.name}
+            placeholder="Nome do produto"
+        />
+    </div>
+</div>
+<div className="row">
+    <div className="col">
+        <span>Valor unitário</span>
+        <input
+            type="unit_value"
+            name="unit_value"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.unit_value}
+            placeholder="R$__,__"
+        />
+    </div>
+    <div className="col">
+        <span>Quantidade</span>
+        <input
+            type="quantity"
+            name="quantity"
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={values.quantity}
+            placeholder="Digite a quantidade"
+        />
+    </div>
+</div>
+</div> */}

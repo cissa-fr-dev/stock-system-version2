@@ -86,4 +86,5 @@ export const Message = styled.div`
     justify-content: center;
     align-items: center;
     background: #90e4c1;
+    border-top: 1px solid #bebebe;
 `;

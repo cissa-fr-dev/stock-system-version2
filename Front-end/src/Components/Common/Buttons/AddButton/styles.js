@@ -12,6 +12,7 @@ export const Content = styled.button`
     border-radius: 1rem;
   
     background: #1FA774;
+    box-shadow: 2px 2px 5px #0e583c;
     transition: .3s;
 
     &:hover{

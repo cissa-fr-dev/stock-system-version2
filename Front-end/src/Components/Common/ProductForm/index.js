@@ -6,7 +6,7 @@ import { mixed, number, object } from 'yup';
 
 const sleep = (time) => new Promise((acc) => setTimeout(acc, time));
 
-export default function Home() {
+export default function ProductForm() {
     return (
         <Card>
             <CardContent>
@@ -22,7 +22,7 @@ export default function Home() {
                         console.log('values', values);
                     }}>
                     <FormikStep
-                        label="Personal Data"
+                        label="Categorias Gerais"
                     >
                         <Box paddingBottom={2}>
                             <Field

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Content = styled.div`
-    padding-bottom: 4rem;
     width: 100vw;
     height: 100%;
 
@@ -10,6 +9,31 @@ export const Content = styled.div`
     flex-direction: column;
     align-items:  center;
 `;
+
+export const Form = styled.form`
+    width: 60%;
+    height: 20rem;
+    padding: 2rem;
+    margin-top: 3rem;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    background-color: #1fa77424;
+    border: 1px solid #9daca6;
+`;
+
+// .form - content > div {
+//     width: 60 %;
+
+//     display: flex;
+//     flex - direction: column;
+//     align - items: center;
+// }
+
+
 
 export const Hr = styled.hr`
     width: 80%;
